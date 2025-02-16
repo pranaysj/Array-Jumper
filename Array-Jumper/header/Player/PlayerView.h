@@ -1,10 +1,15 @@
 #pragma once
 #include"SFML/Graphics.hpp"
 #include"../../header/UI/UIElement/ImageView.h"
+#include"../../header/Player/PlayerController.h"
 
 namespace Player{
+	
 	class PlayerView {
 	private:
+
+		Player::PlayerController* playerController;
+
 		sf::RenderWindow* gameWindow;
 		UI::UIElement::ImageView* playerImage;
 
@@ -19,7 +24,7 @@ namespace Player{
 		sf::Vector2f CalulcatePlayerPosition();
 
 	public:
-		PlayerView();
+		PlayerView(Player::PlayerController* newplayerController);
 		~PlayerView();
 
 		void Initialize();
