@@ -15,6 +15,7 @@ namespace Player {
 	void PlayerController::Initialize()
 	{
 		playerView->Initialize();
+		playerModel->Initialize();
 	}
 	void PlayerController::Update()
 	{

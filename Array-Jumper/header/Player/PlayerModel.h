@@ -13,6 +13,8 @@ namespace Player {
 		PlayerModel();
 		~PlayerModel();
 
+		void Initialize();
+
 		void SetPlayerState(PlayerState newPlayerState);
 		PlayerState GetPlayerState();
 

@@ -34,7 +34,7 @@ namespace Player {
 	}
 	void PlayerView::InitializePlayerImage()
 	{
-		playerImage->initialize(Global::Config::array_jumper_bg_texture_path, playerWeight, playerHeight, sf::Vector2f(0,0));
+		playerImage->initialize(Global::Config::character_texture_path, playerWeight, playerHeight, sf::Vector2f(0,0));
 	}
 	void PlayerView::DrawPlayer()
 	{

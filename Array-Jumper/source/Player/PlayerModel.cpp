@@ -7,6 +7,10 @@ namespace Player {
 	PlayerModel::~PlayerModel()
 	{
 	}
+	void PlayerModel::Initialize()
+	{
+		playerState = PlayerState::ALIVE;
+	}
 	void PlayerModel::SetPlayerState(PlayerState newPlayerState)
 	{
 		playerState = newPlayerState;
