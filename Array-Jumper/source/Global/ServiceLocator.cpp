@@ -52,7 +52,8 @@ namespace Global
 		graphic_service->update();
 		event_service->update();
 		ui_service->update();
-		if (GameService::getGameState() == GameState::GAMEPLAY) {
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
 			level_service->update();
 			player_service->Update();
 		}
@@ -62,7 +63,8 @@ namespace Global
 	{
 		graphic_service->render();
 		ui_service->render();
-		if (GameService::getGameState() == GameState::GAMEPLAY) {
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
 			level_service->render();
 			player_service->Render();
 		}
@@ -70,30 +72,29 @@ namespace Global
 
 	void ServiceLocator::clearAllServices()
 	{
-		delete(graphic_service);
-		delete(event_service);
-		delete(sound_service);
-		delete(ui_service);
-		delete(player_service);
-		delete(level_service);
-
+		delete (graphic_service);
+		delete (event_service);
+		delete (sound_service);
+		delete (ui_service);
+		delete (player_service);
+		delete (level_service);
 	}
 
-	ServiceLocator* ServiceLocator::getInstance()
+	ServiceLocator *ServiceLocator::getInstance()
 	{
 		static ServiceLocator instance;
 		return &instance;
 	}
 
-	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
+	GraphicService *ServiceLocator::getGraphicService() { return graphic_service; }
 
-	EventService* ServiceLocator::getEventService() { return event_service; }
+	EventService *ServiceLocator::getEventService() { return event_service; }
 
-	SoundService* ServiceLocator::getSoundService() { return sound_service; }
+	SoundService *ServiceLocator::getSoundService() { return sound_service; }
 
-	UIService* ServiceLocator::getUIService() { return ui_service; }
+	UIService *ServiceLocator::getUIService() { return ui_service; }
 
-	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
-	
-	LevelService* ServiceLocator::getLevelService() { return level_service; }
+	PlayerService *ServiceLocator::getPlayerService() { return player_service; }
+
+	LevelService *ServiceLocator::getLevelService() { return level_service; }
 }

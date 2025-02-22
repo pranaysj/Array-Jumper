@@ -27,6 +27,11 @@ namespace Level
 
 	void LevelService::destroy()
 	{
-		delete(level_controller);
+		delete (level_controller);
+	}
+
+	BoxDimensions LevelService::GetBoxDimensions()
+	{
+		return level_controller->GetBoxDimensions();
 	}
 }

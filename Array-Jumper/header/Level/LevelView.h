@@ -28,6 +28,7 @@ namespace Level
 		void CalculateBoxWidthHeight();
 		void CalculateBoxSpacing();
 		sf::Vector2f CalculateBoxPosition(int index);
+		BoxDimensions GetBoxDimensions();
 
 		void createImages();
 		void initializeImages();
