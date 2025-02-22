@@ -30,6 +30,6 @@ namespace Level
 
 	BlockType LevelModel::GetCurrentBoxValue(int currentPosition)
 	{
-		return current_level_data.level_boxes[currentPosition];
+		return level_model->GetCurrentBoxValue(currentPosition);
 	}
 }
