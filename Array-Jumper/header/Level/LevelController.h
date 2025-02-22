@@ -1,5 +1,5 @@
 #pragma once
-#include "../../header/Level/LevelController.h"
+// #include "../../header/Level/LevelController.h"
 
 namespace Level
 {
@@ -9,8 +9,8 @@ namespace Level
 	class LevelController
 	{
 	private:
-		LevelView* level_view;
-		LevelModel* level_model;
+		LevelView *level_view;
+		LevelModel *level_model;
 
 	public:
 		LevelController();
@@ -19,5 +19,7 @@ namespace Level
 		void initialize();
 		void update();
 		void render();
+
+		BlockType GetCurrentBoxValue(int currentPosition);
 	};
 }
