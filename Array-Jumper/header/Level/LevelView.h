@@ -25,13 +25,16 @@ namespace Level
 		BoxDimensions box_dimensions;
 		void CalculateBoxDimensions();
 		UI::UIElement::ImageView *GetBoxOverlayImage(BlockType block_type);
+		void CalculateBoxWidthHeight();
+		void CalculateBoxSpacing();
+		sf::Vector2f CalculateBoxPosition(int index);
 
 		void createImages();
 		void initializeImages();
 		void updateImages();
 		void drawLevel();
 		void drawBox(sf::Vector2f position);
-		void LevelView::drawBoxValue(sf::Vector2f position, BlockType box_value);
+		void drawBoxValue(sf::Vector2f position, BlockType box_value);
 		void deleteImages();
 
 	public:

@@ -33,8 +33,8 @@ namespace Level
 		if (!game_Window)
 			return;
 
-		box_dimensions.box_width = 300.0f;
-		box_dimensions.box_height = 300.0f;
+		CalculateBoxWidthHeight();
+		calculateBoxSpacing();
 	}
 	ImageView *LevelView::GetBoxOverlayImage(BlockType block_type)
 	{
@@ -59,6 +59,33 @@ namespace Level
 			return target_overlay_image;
 		}
 		return nullptr;
+	}
+	void LevelView::CalculateBoxWidthHeight()
+	{
+		float screenWidth = static_cast<float>(game_window->getSize().x);
+		int numBoxes = LevelData::NUMBER_OF_BOXES;
+
+		// Each Box has a Gap on it's left, 1 extra gap for last block's right side
+		int numGaps = numBoxes + 1;
+
+		// Total space consumed by all gaps
+		float totalSpaceByGaps = box_dimensions.box_spacing_percentage * static_cast<float>(numGaps);
+
+		// Total space consumed by boxes and gaps
+		float totalSpace = numBoxes + totalSpaceByGaps;
+
+		box_dimensions.box_width = screenWidth / (totalSpace);
+		box_dimensions.box_height = box_dimensions.box_width;
+	}
+	void LevelView::calculateBoxSpacing()
+	{
+		box_dimensions.box_spacing = box_dimensions.box_spacing_percentage * box_dimensions.box_width;
+	}
+	sf::Vector2f LevelView::CalculateBoxPosition(int index)
+	{
+		float xPosition = box_dimensions.box_spacing + static_cast<float>(index) * (box_dimensions.box_width + box_dimensions.box_spacing);
+		float yPosition = static_cast<float>(game_window->getSize().y) - box_dimensions.box_height - box_dimensions.bottom_offset;
+		return sf::Vector2f(xPosition, yPosition);
 	}
 	void LevelView::createImages()
 	{
@@ -102,8 +129,15 @@ namespace Level
 		background_image->render();
 
 		drawBox(sf::Vector2f(0, 0));
-		BlockType blockTypeToDraw = level_controller->GetCurrentBoxValue(0);
-		drawBoxValue(sf::Vector2f(0, 0), blockTypeToDraw);
+
+		for (int i = 0; i < LevelData::NUMBER_OF_BOXES; ++i)
+		{
+			sf::Vector2f position = calculateBoxPosition(i);
+			BlockType blockTypeToDraw = level_controller->getCurrentBoxValue(i);
+
+			drawBox(position);
+			drawBoxValue(position, blockTypeToDraw);
+		}
 	}
 	void LevelView::drawBox(sf::Vector2f position)
 	{
