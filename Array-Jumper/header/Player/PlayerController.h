@@ -14,6 +14,11 @@ namespace Player
 
 		void Destory();
 
+		void readInput();
+		void Move(MovementDirection direction);
+		void jump(MovementDirection direction);
+		bool IsPositionInBound(int targetPosition);
+
 	public:
 		PlayerController();
 		~PlayerController();
@@ -25,7 +30,6 @@ namespace Player
 		PlayerState GetPlayerState();
 		void SetPlayerState(PlayerState newPlayerState);
 
-		void Move(MovementDirection direction);
-		bool IsPositionInBound(int targetPosition)
+		BlockType getCurrentBoxValue(int currentPosition);
 	};
 }
