@@ -1,13 +1,16 @@
 #pragma once
-namespace Player {
+namespace Player
+{
 	class PlayerModel;
 	class PlayerView;
 	enum class PlayerState;
 
-	class PlayerController {
+	class PlayerController
+	{
 	private:
-		PlayerModel* playerModel;
-		PlayerView* playerView;
+		PlayerModel *playerModel;
+		PlayerView *playerView;
+		EventService *event_service;
 
 		void Destory();
 
@@ -21,5 +24,8 @@ namespace Player {
 
 		PlayerState GetPlayerState();
 		void SetPlayerState(PlayerState newPlayerState);
+
+		void Move(MovementDirection direction);
+		bool IsPositionInBound(int targetPosition)
 	};
 }
