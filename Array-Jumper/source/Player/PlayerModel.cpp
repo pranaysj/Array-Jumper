@@ -1,6 +1,7 @@
-#include"../../header/Player/PlayerModel.h"
+#include "../../header/Player/PlayerModel.h"
 
-namespace Player {
+namespace Player
+{
 	PlayerModel::PlayerModel()
 	{
 	}
@@ -26,5 +27,10 @@ namespace Player {
 	int PlayerModel::GetCurrentPosition()
 	{
 		return currentPosition;
+	}
+	void PlayerModel::resetPlayer()
+	{
+		current_position = 0;
+		player_state = PlayerState::ALIVE;
 	}
 }

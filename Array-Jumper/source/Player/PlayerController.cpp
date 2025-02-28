@@ -71,6 +71,8 @@ namespace Player
 
 		player_model->SetCurrentPosition(targetPosition);
 		ServiceLocator::GetInstance()->getSoundService()->playSound(SoundType::MOVE);
+
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
 	void PlayerController::readInput()
 	{
@@ -119,5 +121,10 @@ namespace Player
 
 		player_model->setCurrentPosition(targetPosition);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::JUMP);
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
+	}
+	void PlayerController::takeDamage()
+	{
+		player_model->resetPlayer();
 	}
 }

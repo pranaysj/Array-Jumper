@@ -31,5 +31,6 @@ namespace Player
 		void SetPlayerState(PlayerState newPlayerState);
 
 		BlockType getCurrentBoxValue(int currentPosition);
+		void takeDamage();
 	};
 }

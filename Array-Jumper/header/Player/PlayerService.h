@@ -1,10 +1,12 @@
 #pragma once
 
-namespace Player {
+namespace Player
+{
 	class PlayerController;
-	class PlayerService {
+	class PlayerService
+	{
 	private:
-		PlayerController* playerController;
+		PlayerController *playerController;
 
 		void Destory();
 
@@ -15,5 +17,7 @@ namespace Player {
 		void Initialize();
 		void Update();
 		void Render();
+
+		void takeDamage();
 	};
 }

@@ -1,30 +1,33 @@
 #pragma once
-#include"SFML/Graphics.hpp"
-#include"../../header/UI/UIElement/ImageView.h"
-#include"../../header/Player/PlayerController.h"
+#include "SFML/Graphics.hpp"
+#include "../../header/UI/UIElement/ImageView.h"
+#include "../../header/Player/PlayerController.h"
 
-namespace Player{
-	
-	class PlayerView {
+namespace Player
+{
+
+	class PlayerView
+	{
 	private:
+		Player::PlayerController *playerController;
 
-		Player::PlayerController* playerController;
-
-		sf::RenderWindow* gameWindow;
-		UI::UIElement::ImageView* playerImage;
+		sf::RenderWindow *gameWindow;
+		UI::UIElement::ImageView *playerImage;
 
 		float playerWeight;
 		float playerHeight;
-		
-		void InitializePlayerImage(); 
-		void DrawPlayer(); 
-		void LoadPlayer(); 
+
+		BoxDimentions current_box_dimensions;
+
+		void InitializePlayerImage();
+		void DrawPlayer();
+		void LoadPlayer();
 		void CalculatePlayerDimensions();
-		void UpdatePlayerPosition(); 
+		void UpdatePlayerPosition();
 		sf::Vector2f CalulcatePlayerPosition();
 
 	public:
-		PlayerView(Player::PlayerController* newplayerController);
+		PlayerView(Player::PlayerController *newplayerController);
 		~PlayerView();
 
 		void Initialize();

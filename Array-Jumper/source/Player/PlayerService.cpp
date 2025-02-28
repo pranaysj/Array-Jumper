@@ -1,8 +1,8 @@
-#include"../../header/Player/PlayerService.h"
-#include"../../header/Player/PlayerController.h"
+#include "../../header/Player/PlayerService.h"
+#include "../../header/Player/PlayerController.h"
 
-
-namespace Player {
+namespace Player
+{
 	PlayerService::PlayerService()
 	{
 		playerController = new PlayerController();
@@ -25,6 +25,10 @@ namespace Player {
 	}
 	void PlayerService::Destory()
 	{
-		delete(playerController);
+		delete (playerController);
+	}
+	void PlayerService::takeDamage()
+	{
+		player_controller->takeDamage();
 	}
 }
