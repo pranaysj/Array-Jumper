@@ -31,4 +31,8 @@ namespace Player
 	{
 		player_controller->takeDamage();
 	}
+	void PlayerService::levelComplete()
+	{
+		player_controller->resetPlayer();
+	}
 }

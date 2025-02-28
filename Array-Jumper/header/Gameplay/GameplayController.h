@@ -17,5 +17,7 @@ namespace Gameplay
         void render();
 
         void onPositionChanged(int position);
+        bool isEndBlock(BlockType value);
+        void processEndBlock();
     }
 }

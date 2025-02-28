@@ -34,5 +34,19 @@ namespace Gameplay
 
         if (isObstacle(value))
             processObstacle();
+        if (isEndBlock(value))
+            processEndBlock();
+    }
+    bool GameplayController::isEndBlock(Level::BlockType value)
+    {
+        if (value == BlockType::TARGET)
+            return true;
+        return false;
+    }
+    void GameplayController::processEndBlock()
+    {
+        ServiceLocator::getInstance()->getPlayerService()->levelComplete();
+        ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::LEVEL_COMPLETE);
+        GameService::setGameState(GameState::CREDITS);
     }
 }
