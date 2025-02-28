@@ -10,8 +10,11 @@ namespace Player
 	class PlayerModel
 	{
 	private:
-		int currentPosition;
+		int current_position;
 		PlayerState playerState;
+
+		const int max_lives = 3;
+		int current_lives;
 
 	public:
 		PlayerModel();
@@ -26,5 +29,9 @@ namespace Player
 		int GetCurrentPosition();
 
 		void resetPlayer();
+		int getCurrentLives();
+
+		void decrementLife();
+		void resetPosition();
 	};
 }

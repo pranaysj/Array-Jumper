@@ -32,5 +32,9 @@ namespace Player
 
 		BlockType getCurrentBoxValue(int currentPosition);
 		void takeDamage();
+
+		void resetPlayer();
+		int getCurrentLives();
+		void onDeath();
 	};
 }

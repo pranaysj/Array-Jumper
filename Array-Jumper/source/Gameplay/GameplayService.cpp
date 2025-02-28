@@ -2,27 +2,31 @@
 
 namespace Gameplay
 {
-    GameplayController::GameplayService()
+    GameplayService::GameplayService()
     {
         gameplay_controller = new GameplayController();
     }
-    GameplayController::~GameplayService()
+    GameplayService::~GameplayService()
     {
     }
-    void GameplayController::initialize()
+    void GameplayService::initialize()
     {
         gameplay_controller->initialize();
     }
-    void GameplayController::update()
+    void GameplayService::update()
     {
         gameplay_controller->update();
     }
-    void GameplayController::render()
+    void GameplayService::render()
     {
         gameplay_controller->render();
     }
-    void onPositionChanged(int position)
+    void GameplayService::onPositionChanged(int position)
     {
         gameplay_controller->onPosiitonChanged(position);
+    }
+    void GameplayService::onDeath()
+    {
+        gameplay_controller->onDeath();
     }
 }
