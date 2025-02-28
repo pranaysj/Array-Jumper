@@ -6,8 +6,7 @@ namespace Gameplay
     {
     private:
         GameplayController *gameplay_controller;
-
-        void onPositionChanged(int position);
+        void destroy();
 
     public:
         GameplayService();
@@ -17,6 +16,8 @@ namespace Gameplay
         void update();
         void render();
 
+        void startGame();
+        void onPositionChanged(int position);
         void onDeath();
     }
 }

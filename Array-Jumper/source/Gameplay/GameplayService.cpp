@@ -8,6 +8,7 @@ namespace Gameplay
     }
     GameplayService::~GameplayService()
     {
+        destroy();
     }
     void GameplayService::initialize()
     {
@@ -29,4 +30,13 @@ namespace Gameplay
     {
         gameplay_controller->onDeath();
     }
+    void GameplayService::startGame()
+    {
+        gameplay_controller->startGame();
+    }
+    void GameplayService::destroy()
+    {
+        delete (gameplay_controller);
+    }
+
 }
